@@ -1,4 +1,14 @@
+import Provider from './components/Provider'
 import './globals.css'
+import {Poppins,Roboto} from"@next/font/google"
+
+const roboto = Roboto({
+  subsets:['latin'],
+  weight:['400','700','500','300'],
+  
+})
+
+
 
 export default function RootLayout({ children }) {
   return (
@@ -8,7 +18,11 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body>{children}</body>
+      <body >
+        <Provider>
+        {children}
+        </Provider>
+        </body>
     </html>
   )
 }
