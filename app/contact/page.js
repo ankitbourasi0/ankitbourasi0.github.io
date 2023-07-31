@@ -5,7 +5,7 @@ import React from "react";
 // import { GrMail } from "react-icons/gr";
 import { useForm, ValidationError } from "@formspree/react";
 import { toast, Toaster } from "react-hot-toast";
-const contact = () => {
+const Contact = () => {
   const [state, handleSubmit] = useForm("mbjvdoqq");
   const handleForm = () => {};
   if (state.succeeded) {
@@ -89,4 +89,4 @@ const contact = () => {
   );
 };
 
-export default contact;
+export default Contact;

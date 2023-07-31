@@ -19,10 +19,10 @@ const Navbar = () => {
   const [mounted, setmounted] = useState(false);
   useEffect(() => {
     setmounted(true);
-    console.log(route.pathname);
+    // console.log(route.pathname);
   }, []);
 
-  const route = useRouter();
+  // const route = useRouter();
   return (
 
 
