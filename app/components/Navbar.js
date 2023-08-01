@@ -1,47 +1,49 @@
-"use client"
+"use client";
 
-
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import { useTheme } from 'next-themes';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { Icons } from '@/app/components/Icons'
-import { Poppins } from '@next/font/google';
+
+import { Poppins } from "@next/font/google";
+import { ThemeButton } from "./ThemeButton";
+import { useTheme } from "next-themes";
 const poppins = Poppins({
-  subsets:['latin'],
-  weight:['400','500','600','700','500','300'],
-}) 
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "500", "300"],
+});
 const Navbar = () => {
-
-
   const { resolvedTheme, setTheme } = useTheme();
   const [mounted, setmounted] = useState(false);
   useEffect(() => {
     setmounted(true);
-    // console.log(route.pathname);
+
   }, []);
 
   // const route = useRouter();
   return (
+    <nav
+      className={` ${poppins.className} container relative top-0 z-30  w-full font-poppins min-h-[10vh] flex items-center `}
+    >
+      <div className="max-w-7xl mx-auto w-full flex items-center ">
+        <ul
+          className={`list-none  flex   items-center  w-full px-6 space-x-10 font-medium`}
+        >
+          {/* <Link href={"/"}><Image unoptimized src={"/samosa.png"} width={40} height={40}/></Link> */}
+          <Link
+            href="/"
+            className="flex-1 font-love  text-4xl font-medium"
+          >
+            Samosaa
+          </Link>
+{/* 
+          <Link href="/">Home</Link>
+          <Link href={"/contact"}>Contact</Link> */}
 
 
-    
-    <nav className={` ${poppins.className} container relative top-0 z-30  w-full font-poppins min-h-[10vh] flex items-center `}>
-    <div className="max-w-6xl mx-auto w-full flex items-center ">
-      <ul className={`list-none  flex   items-center  w-full px-6 space-x-10 font-medium`}>
-        {/* <Link href={"/"}><Image unoptimized src={"/samosa.png"} width={40} height={40}/></Link> */}
-        <Link href="/" className='flex-1 font-love sm:text-2xl md:text-4xl font-medium'>Samosaa</Link>
-        
-        <Link href="/">Home</Link>
-        <Link href={"/contact"}>Contact</Link>
-      </ul>
-
-        {/* dark mode button  */}
-      <div className=''>
-        <button type='button' 
+            {/* dark mode button  */}
+        <div className="">
+          <button type='button' 
         onClick={()=> setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-        className='w-9 h-9 md:float-right  bg-zinc-500 rounded-lg dark:bg-zinc-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all'>
+        className='w-9 h-9 md:float-right  bg-zinc-200 rounded-lg dark:bg-zinc-600 flex items-center justify-center hover:ring-2 ring-gray-300 transition-all'>
 
 {mounted && (
             <>
@@ -83,12 +85,14 @@ const Navbar = () => {
             </>
           )}
         </button>
-        
-         </div>
-    </div>
-  </nav>
-  )
-}
+          {/* <ThemeButton /> */}
+        </div>
+        </ul>
 
-export default Navbar
+      
+      </div>
+    </nav>
+  );
+};
 
+export default Navbar;

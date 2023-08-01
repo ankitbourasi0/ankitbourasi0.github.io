@@ -8,8 +8,12 @@ import { toast, Toaster } from "react-hot-toast";
 const Contact = () => {
   const [state, handleSubmit] = useForm("mbjvdoqq");
   const handleForm = () => {};
+  
+    
+
   if (state.succeeded) {
-    toast.success("Thanks for Contact");
+    // toast.success("Thanks for Contact");
+    
   }
   return (
     <div className="w-full font-poppins ">

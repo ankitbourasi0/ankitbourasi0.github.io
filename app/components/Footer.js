@@ -13,7 +13,7 @@ const Footer = () => {
           © 2023
           <a
             target="_blank"
-            href="https://github.com/riad-azz"
+            href="https://github.com/ankitbourasi0"
             className="mx-1 hover:underline"
           >
            ankitbourasi0

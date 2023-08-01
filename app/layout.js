@@ -18,7 +18,9 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body >
+      
+      <body className='overflow-x-hidden bg-white text-gray-900 dark:bg-neutral-900 dark:text-slate-100' >
+        
         <Provider>
         {children}
         </Provider>

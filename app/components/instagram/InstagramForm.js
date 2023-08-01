@@ -4,15 +4,16 @@ import { useState, } from "react";
 import { DownloadButton } from "./DownloadButton";
 import { Exception, ClientException } from "@/app/exceptions";
 import { fetchVideoInfoAction } from "@/app/lib/instagram/actions";
+import { Toaster, toast } from "react-hot-toast";
 
 
 const validateInput = (postUrl) => {
   if (!postUrl) {
-    throw new ClientException("Instagram URL was not provided");
+    throw new ClientException("Instagram URL was not provided, Please Enter a Instagram URL");
   }
 
   if (!postUrl.includes("instagram.com/")) {
-    throw new ClientException("Invalid URL does not contain Instagram domain");
+    throw new ClientException("Invalid URL! does not belong to Instagram");
   }
 
   if (!postUrl.startsWith("https://")) {
@@ -28,13 +29,13 @@ const validateInput = (postUrl) => {
     /^https:\/\/(?:www\.)?instagram\.com\/reels?\/([a-zA-Z0-9_-]+)\/?/;
 
   if (!postRegex.test(postUrl) && !reelRegex.test(postUrl)) {
-    throw new ClientException("URL does not match Instagram post or reel");
+    throw new ClientException("URL does not match with any Instagram post or reel");
   }
 };
 
 const downloadVideo = async (filename, downloadUrl) => {
   try {
-    await fetch(downloadUrl)
+ await fetch(downloadUrl)
       .then((response) => response.blob())
       .then((blob) => {
         const blobUrl = URL.createObjectURL(blob);
@@ -45,7 +46,9 @@ const downloadVideo = async (filename, downloadUrl) => {
         document.body.appendChild(a);
         a.click();
         a.remove();
+        toast.success("Video Download Succesfully 😊",options={duration:4000});
       });
+      console.log(ok)
   } catch (error) {
     const a = document.createElement("a");
     a.target = "_blank";
@@ -117,6 +120,8 @@ export default function InstagramForm() {
       {errorMsg !== "" && (
         <div className="mb-1 text-sm text-red-500 md:text-base">{errorMsg}</div>
       )}
+        <Toaster position="top-center"/>
+
       <form
         className="flex flex-col items-center gap-4 motion-safe:animate-[animate-up_1.5s_ease-in-out_1] md:flex-row md:gap-2"
         onSubmit={handleSubmit}
@@ -130,10 +135,10 @@ export default function InstagramForm() {
           value={postUrl}
           autoFocus={true}
           onChange={(e) => setPostUrl(e.target.value)}
-          placeholder="e.g. https://www.instagram.com/p/CGh4a0iASGS"
+          placeholder="e.g. https://www.instagram.com/p/Qpb744hdnf"
           aria-label="Instagram video download URL input"
           title="Instagram video download URL input"
-          className="w-full rounded border border-slate-100 px-2 py-3 placeholder-gray-400/80 drop-shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 dark:border-none dark:bg-gray-700 dark:text-white dark:placeholder-gray-400"
+          className="w-full rounded border border-slate-100 px-2 py-3 placeholder-gray-400/80 drop-shadow-md focus:outline-none focus:ring-2 focus:ring-blue-400 dark:border-none dark:focus:ring-2 dark:focus:ring-zinc-400  dark:bg-neutral-800  dark:text-white dark:placeholder-gray-400"
         />
         <DownloadButton isLoading={isLoading} />
       </form>

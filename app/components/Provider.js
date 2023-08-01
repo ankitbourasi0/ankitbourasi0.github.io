@@ -1,7 +1,7 @@
 "use client";
 
 
-import { ThemeProvider } from 'next-theme'
+import { ThemeProvider } from 'next-themes'
 import React from 'react'
 import Navbar from './Navbar';
 import Footer from './Footer';
