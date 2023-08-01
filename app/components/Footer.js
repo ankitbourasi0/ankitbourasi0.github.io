@@ -31,7 +31,7 @@ const Footer = () => {
           </a>
         </div> */}
         <ul className="mt-3 flex flex-wrap items-center gap-4 text-sm font-medium md:mt-0">
-          <li>
+          {/* <li>
             <a
               target="_blank"
               href="https://github.com/riad-azz/instagram-video-downloader/blob/master/LICENSE.md"
@@ -39,7 +39,7 @@ const Footer = () => {
             >
               Licensing
             </a>
-          </li>
+          </li> */}
           <li>
             <a
               target="_blank"
