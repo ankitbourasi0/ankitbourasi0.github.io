@@ -3,6 +3,8 @@ const nextConfig = {
   experimental: {
     appDir:true,
     serverActions: true,
+    // Add basePath
+ 
   },
   async headers() {
     return [
