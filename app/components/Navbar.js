@@ -6,7 +6,6 @@ import Link from "next/link";
 import { Poppins } from "@next/font/google";
 import { ThemeButton } from "./ThemeButton";
 import { useTheme } from "next-themes";
-import AdComponent from "./AdComponent";
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "500", "300"],
@@ -41,7 +40,6 @@ const Navbar = () => {
 
 
             {/* dark mode button  */}
-            <AdComponent/>
         <div className="">
           <button type='button' 
         onClick={()=> setTheme(resolvedTheme === "dark" ? "light" : "dark")}

@@ -7,16 +7,7 @@ import { Icons } from "@/app/components/Icons";
 import { useEffect } from "react";
 
 const Footer = () => {
-  useEffect(() => {
-    const script = document.createElement('script');
-    script.src = 'https://www.profitablecreativeformat.com/e6ad1de2865735043fef3bfb7a3eda26/invoke.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  
   return (
     <footer className="bg-gray-900/80 text-slate-300 shadow-lg dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl px-4 py-2 md:flex md:items-center md:justify-between">
